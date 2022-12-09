@@ -35,7 +35,7 @@ if(isset($_POST['proses'])){
     mysqli_query($koneksi,"update siswa set
     nama_siswa = '$_POST[nama_siswa]',
     kelas = '$_POST[kelas]',
-    alamat_siswa = '$_POST[alamat_siswa]'
+    alamat_siswa = '$_POST[alamat_siswa]',
     where id = '$_GET[kode]'");
     echo "Data siswa baru telah di ubah";
     echo "<meta http-equiv=refresh content=1;URL='tampilan.php'";
