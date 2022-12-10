@@ -9,7 +9,7 @@
         <th colspan="2">Aksi</th>
     </tr>
 
-    <?php
+    <!-- <?php
     include "koneksi.php";
     $no = 1;
     $ambildata = mysqli_query($koneksi, "select * from siswa");
@@ -25,7 +25,41 @@
         </tr>";
         $no++;
     }
+    ?> -->
+    <?php
+    include "koneksi.php";
+    $no = 1;
+    $ambildata = mysqli_query($koneksi, "select * from siswa") or die (mysqli_error($koneksi));
+    do { 
+        echo "
+        <tr>
+        <td>$no</td>
+        <td>$tampil[nama_siswa]</td>
+        <td>$tampil[kelas]</td>
+        <td>$tampil[alamat_siswa]</td>
+        <td><a href='?kode=$tampil[id]'>Hapus</a></td>
+        <td><a href='ubah_siswa.php?kode=$tampil[id]'>Ubah</a></td>
+        </tr>";  
+        $no++;
+    }while($tampil = mysqli_fetch_array($ambildata)); 
     ?>
+    <!-- <?php
+    include "koneksi.php";
+    $no = 1;
+    $ambildata = mysqli_query($koneksi, "select * from siswa") or die (mysqli_error($koneksi));
+    for ( ;  $tampil = mysqli_fetch_array($ambildata);) {
+        echo "
+        <tr>
+        <td>$no</td>
+        <td>$tampil[nama_siswa]</td>
+        <td>$tampil[kelas]</td>
+        <td>$tampil[alamat_siswa]</td>
+        <td><a href='?kode=$tampil[id]'>Hapus</a></td>
+        <td><a href='ubah_siswa.php?kode=$tampil[id]'>Ubah</a></td>
+        </tr>";
+        $no++; 
+    };
+    ?> -->
 </table>
 
 <?php
